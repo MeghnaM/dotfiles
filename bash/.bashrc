@@ -14,15 +14,6 @@ set -o vi
 export LC_CTYPE=en_US.UTF-8
 #export LC_ALL=en_US.UTF-8
 
-# 
-alias tux="ssh mm3886@tux"
-alias scarlet="ssh scarlet@sonorous"
-alias server="ssh root@sonorous"
-alias texme="bash /Users/MeghnaM/Documents/Drexel/texme.bash $1 $2"
-alias l="ls -CF"
-alias "emacs"="/usr/local/opt/emacs/bin/emacs"
-alias "jy"="cd ~/Documents/Drexel/JuniorYear/"
-
 nc="$(tput -Txterm-256color colors)"
 if (( nc >= 8 )) ; then
 	alias ls="ls -G"
@@ -34,7 +25,7 @@ alias h="history"
 alias rm="rm -i"
 alias mv="mv -i"
 alias cp="cp -i"
-alias ll="ls -l"
+alias ll="ls -lt"
 alias la="ls -a"
 
 # You can type 'lh' at the command line.  Try it, see what happens.
@@ -42,6 +33,9 @@ function lh
 {
 	ls -ot "${1:-.}" | head
 }
+
+# For pkg_config to be able to find opencv
+export PKG_CONFIG_PATH="/usr/local/opt/opencv@2/lib/pkgconfig"
 
 ## VARIABLES
 # set prompt, though maybe already done in /etc/bashrc
@@ -55,11 +49,16 @@ export HISTIGNORE="&:l:[bf]g:exit"
 # ANSI color codes
 RS="\[\033[0m\]"    # reset
 FRED="\[\033[31m\]" # foreground red
-FMAG="\[\033[35m\]" # foreground magenta
-FGRN="\[\033[1;32m\]" # foreground green
+LRED="\[\033[91m\]" # foreground magenta
+FGRN="\[\033[0;32m\]" # foreground green
+BLUE="\[\033[1;49;96m\]"
+
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+} 
 
 # Define prompt
-export PS1="$FGRN\u$RS@\h[\e[1;33m\w\e[0m]\e[1;32m»\e[0m"
+export PS1="$LRED\u$FGRN\w\[\033[33m\]\$(parse_git_branch)$BLUE ☞ $RS" 
 
 LS_COLORS=$LS_COLORS:'di=0;31:ln=0;31:' ; export LS_COLORS
 # http://askubuntu.com/questions/466198/how-do-i-change-the-color-for-directories-with-ls-in-the-console
