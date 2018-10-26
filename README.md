@@ -2,7 +2,7 @@
 A collection of my dotfiles so that I can quickly import my custom configurations everywhere.
 
 ## Usage
-1. Install [stow] (https://www.gnu.org/software/stow/)
+1. Install [stow](https://www.gnu.org/software/stow/)
 ```
 brew install stow
 ```
