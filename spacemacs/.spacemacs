@@ -370,6 +370,10 @@ you should place your code here."
   (setq yas-snippet-dirs '("~/.emacsconfig/snippets"))
   (yas-global-mode 1)
 
+  (add-to-list 'auto-mode-alist '("components\\/.*\\.js\\'" . rjsx-mode))
+
+  (setq org-bullets-bullet-list '("◉" "○" "◆" "◇"))
+
   ;; load obscure csv library
   ;; (load "~/.emacsconfig/lib/el-csv/parse-csv.el")
 
@@ -387,8 +391,8 @@ you should place your code here."
   ;; load keybindings
   (load "~/.emacsconfig/keys.el")
 
-  ;; (with-eval-after-load 'gnus
-  ;;   (load "~/.emacsconfig/pkgconfig/gnus.el"))
+  ;; load hooks
+  (load "~/.emacsconfig/hooks.el")
 
   ;; Get email, and store in nnml
   ;; (setq gnus-secondary-select-methods

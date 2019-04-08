@@ -1,4 +1,4 @@
- (setq org-agenda-files '("~/groupon.org"))
+ (setq org-agenda-files '("~/src"))
 ;;                          "~/Dropbox/org/project"
 ;;                          "~/Dropbox/org/today.org"
 ;;                          "~/Dropbox/org/agenda-refile-beorg.org"))
@@ -36,8 +36,8 @@
 ;;    (sqlite . nil)
 ;;    (restclient . t)))
 
-(set-face-foreground 'org-level-3 "maroon1")
 (set-face-foreground 'org-level-2 "DarkOrange1")
+(set-face-foreground 'org-level-3 "maroon1")
 (set-face-foreground 'org-level-4 "mediumpurple2")
 
 (setq org-babel-python-command "python3")
