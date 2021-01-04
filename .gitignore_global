@@ -1,0 +1,8 @@
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+
+# Configure Git to use the exclude file ~/dotfiles/.gitignore_global for all Git repositories
+# $ git config --global core.excludesfile ~/dotfiles/.gitignore_global
+

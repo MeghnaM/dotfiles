@@ -62,3 +62,6 @@ export PS1="$LRED\u$FGRN\w\[\033[33m\]\$(parse_git_branch)$BLUE ☞ $RS"
 
 LS_COLORS=$LS_COLORS:'di=0;31:ln=0;31:' ; export LS_COLORS
 # http://askubuntu.com/questions/466198/how-do-i-change-the-color-for-directories-with-ls-in-the-console
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

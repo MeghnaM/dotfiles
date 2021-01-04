@@ -1,2 +1,6 @@
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 (add-hook 'org-mode-hook (lambda () (hl-todo-mode -1) nil))
+(add-hook 'web-mode-hook (lambda ()
+                           (setq web-mode-code-indent-offset 2)
+                           (setq web-mode-markup-indent-offset 2)
+                           ))
