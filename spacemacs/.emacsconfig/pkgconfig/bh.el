@@ -29,13 +29,14 @@
   (switch-to-buffer "*scratch*"))
 
 (setq org-todo-keywords
-      (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
-              (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "PHONE" "MEETING"))))
+      (quote ((sequence "TODO(t)" "CURR(c)" "NEXT(n)" "|" "HOLD(h@/!)" "DONE(d)" "CANCELLED(x@/!)"))))
+;; (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "PHONE" "MEETING"))))
 
 (setq org-todo-keyword-faces
       (quote (("TODO" :foreground "red" :weight bold)
+              ("CURR" :foreground "cyan1" :weight bold)
               ("NEXT" :foreground "orange" :weight bold)
-              ("DONE" :foreground "gray38" :weight bold)
+              ("DONE" :foreground "forest green" :weight bold)
               ("WAITING" :foreground "forest green" :weight bold)
               ("HOLD" :foreground "magenta" :weight bold)
               ("CANCELLED" :foreground "gray38" :weight bold)
@@ -47,8 +48,9 @@
 (setq org-treat-S-cursor-todo-selection-as-state-change nil)
 
 (setq org-todo-state-tags-triggers
-      (quote (("CANCELLED" ("CANCELLED" . t))
-              ("WAITING" ("WAITING" . t))
+      (quote (
+              ;; ("CANCELLED" ("CANCELLED" . t))
+              ("waiting" ("WAITING" . t))
               ("HOLD" ("WAITING") ("HOLD" . t))
               (done ("WAITING") ("HOLD"))
               ("TODO" ("WAITING") ("CANCELLED") ("HOLD"))
@@ -164,8 +166,8 @@ Switch projects and subprojects from NEXT back to TODO"
     (cond
      ((and (member (org-get-todo-state) (list "TODO"))
            (bh/is-task-p))
-      "NEXT")
-     ((and (member (org-get-todo-state) (list "NEXT"))
+      "CURR")
+     ((and (member (org-get-todo-state) (list "CURR"))
            (bh/is-project-p))
       "TODO"))))
 

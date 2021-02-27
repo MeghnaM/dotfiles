@@ -41,3 +41,6 @@
 (set-face-foreground 'org-level-4 "mediumpurple2")
 
 (setq org-babel-python-command "python3")
+
+;; Customize tag faces in org mode
+(set-face-attribute 'org-tag nil :foreground "goldenrod1")
